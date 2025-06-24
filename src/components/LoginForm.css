@@ -1,6 +1,6 @@
-/* Simple LoginForm styles */
+/* Simple LoginForm styles scoped to .login-form */
 
-div {
+.login-form {
   max-width: 300px;
   margin: 40px auto;
   padding: 20px;
@@ -9,12 +9,12 @@ div {
   font-family: Arial, sans-serif;
 }
 
-h2 {
+.login-form h2 {
   text-align: center;
   color: #333;
 }
 
-input {
+.login-form input {
   width: 100%;
   padding: 8px;
   margin: 8px 0;
@@ -23,7 +23,7 @@ input {
   border-radius: 4px;
 }
 
-button[type="submit"] {
+.login-form button[type="submit"] {
   width: 100%;
   padding: 10px;
   background-color: #007bff;
@@ -33,16 +33,16 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.login-form button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-p {
+.login-form p {
   text-align: center;
   margin-top: 12px;
 }
 
-p button {
+.login-form p button {
   background: none;
   border: none;
   color: #007bff;
@@ -50,6 +50,6 @@ p button {
   padding: 0;
 }
 
-p button:hover {
+.login-form p button:hover {
   text-decoration: underline;
 }
