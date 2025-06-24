@@ -10,9 +10,10 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    window.location.reload(); // refresh to show login
-  };
+  await supabase.auth.signOut();
+  navigate("/"); // redirect to home after logout
+};
+
 
   return (
     <Menu
