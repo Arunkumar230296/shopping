@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../components/LoginForm.css';
 
 export default function LoginForm({ onSubmit, onSwitch }) {
   const [email, setEmail] = useState('');
