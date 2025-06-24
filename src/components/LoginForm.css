@@ -1,12 +1,37 @@
-/* Simple LoginForm styles scoped to .login-form */
+/* Wrapper to isolate login layout */
+.login-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertically center */
+  align-items: center;      /* horizontally center */
+  min-height: 100vh;        /* full screen height */
+  background-color: #f9f9f9;
+  padding: 20px;
+}
 
+
+
+/* Stylish header */
+.login-header {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #1E90FF;
+  font-style: italic;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container for the form */
 .login-form {
   max-width: 300px;
-  margin: 40px auto;
+  width: 100%;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-family: Arial, sans-serif;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 }
 
 .login-form h2 {

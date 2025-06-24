@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../components/SignupForm.css';
 
 export default function SignupForm({ onSubmit, onSwitch }) {
   const [username, setUsername] = useState('');
@@ -11,26 +12,44 @@ export default function SignupForm({ onSubmit, onSwitch }) {
   };
 
   return (
-    <div>
+    <div className="signup-form">
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="on">
         <input
-          type="text" placeholder="Username" value={username}
-          onChange={e => setUsername(e.target.value)} required />
-        <br /><br />
+          type="text"
+          name="username"
+          autoComplete="username"
+          placeholder="Username"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+          required
+        />
+        
         <input
-          type="email" placeholder="Email" value={email}
-          onChange={e => setEmail(e.target.value)} required />
-        <br /><br />
+          type="email"
+          name="email"
+          autoComplete="email"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+        />
+        
         <input
-          type="password" placeholder="Password" value={password}
-          onChange={e => setPassword(e.target.value)} required />
-        <br /><br />
+          type="password"
+          name="password"
+          autoComplete="new-password"
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required
+        />
+        
         <button type="submit">Sign Up</button>
       </form>
       <p>
         Already have an account?{' '}
-        <button onClick={onSwitch}>Login</button>
+        <button type="button" onClick={onSwitch}>Login</button>
       </p>
     </div>
   );

@@ -36,7 +36,8 @@ export default function Navbar() {
         <Menu.Item key="cart">
           <Link to="/cart">
             <Badge count={totalItems} offset={[10, 0]}>
-              <ShoppingCartOutlined style={{ fontSize: "20px" }} />
+             <ShoppingCartOutlined style={{ fontSize: "20px", color: "white" }} />
+ 
             </Badge>
           </Link>
         </Menu.Item>

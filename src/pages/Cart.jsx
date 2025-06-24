@@ -22,7 +22,7 @@ export default function Cart() {
           removeFromCart={removeFromCart}
         />
       ))}
-      <Title level={3}>Total: ${totalPrice.toFixed(2)}</Title>
+      <Title level={3}>Total: Rs.{totalPrice.toFixed(2)}</Title>
       {cartItems.length > 0 && (
         <Button type="primary" onClick={() => navigate("/checkout")}>
           Checkout

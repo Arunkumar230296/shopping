@@ -10,7 +10,7 @@ export default function CartItem({ item, updateQuantity, removeFromCart }) {
     >
       <Col flex="auto">
         <h4>{item.name}</h4>
-        <p>${item.price.toFixed(2)}</p>
+        <p>Rs.{item.price.toFixed(2)}</p>
       </Col>
       <Col>
         <InputNumber

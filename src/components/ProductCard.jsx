@@ -11,7 +11,7 @@ export default function ProductCard({ product, addToCart }) {
       style={{ width: 240, marginBottom: 20 }}
       cover={<img alt={product.name} src={product.image} />}
     >
-      <Meta title={product.name} description={`$${product.price.toFixed(2)}`} />
+      <Meta title={product.name} description={`Rs.${product.price.toFixed(2)}`} />
       <div style={{ marginTop: 10 }}>
         <Link to={`/products/${product.id}`}>
           <Button type="link">View Details</Button>

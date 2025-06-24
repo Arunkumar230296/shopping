@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import { supabase } from "./supabase/client";
 import AuthPage from "./pages/AuthPage";
 import { CartProvider } from "./context/CartContext";
@@ -14,16 +14,56 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 
+function AppContent({ session, setSession }) {
+  const navigate = useNavigate();
+
+  // Keep track of previous session state to detect login transition
+  const [prevSession, setPrevSession] = useState(null);
+
+  useEffect(() => {
+    if (session && !prevSession) {
+      // User just logged in, redirect to home page
+      navigate("/");
+    }
+    setPrevSession(session);
+  }, [session, prevSession, navigate]);
+
+  if (!session) {
+    return (
+      <AuthPage
+        onLogin={() =>
+          supabase.auth.getSession().then(({ data }) => setSession(data.session))
+        }
+      />
+    );
+  }
+
+  return (
+    <>
+      <Navbar session={session} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-confirmation" element={<OrderConfirmation />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}
+
 export default function App() {
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getSession = async () => {
+    async function getSession() {
       const { data } = await supabase.auth.getSession();
       setSession(data.session);
       setLoading(false);
-    };
+    }
 
     getSession();
 
@@ -36,34 +76,12 @@ export default function App() {
     };
   }, []);
 
-  // While checking for session
   if (loading) return <p>Loading...</p>;
 
-  // If not logged in, show login/signup
-  if (!session) {
-    return (
-      <AuthPage
-        onLogin={() =>
-          supabase.auth.getSession().then(({ data }) => setSession(data.session))
-        }
-      />
-    );
-  }
-
-  // If logged in, render the full app
   return (
     <CartProvider>
       <Router>
-        <Navbar session={session} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/order-confirmation" element={<OrderConfirmation />} />
-        </Routes>
-        <Footer />
+        <AppContent session={session} setSession={setSession} />
       </Router>
     </CartProvider>
   );

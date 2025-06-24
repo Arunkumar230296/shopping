@@ -24,7 +24,7 @@ export default function ProductDetails() {
         <Title level={2}>{product.name}</Title>
         <Paragraph>{product.description}</Paragraph>
         <Paragraph strong style={{ fontSize: 18 }}>
-          Price: ${product.price.toFixed(2)}
+          Price: Rs.{product.price.toFixed(2)}
         </Paragraph>
         <InputNumber
           min={1}
