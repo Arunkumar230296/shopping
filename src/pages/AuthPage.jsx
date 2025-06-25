@@ -31,9 +31,7 @@ export default function AuthPage({ onLogin }) {
 
   return (
     <>
-      <div className="auth-header">
-        <span role="img" aria-label="shopping cart" className="cart-icon">🛒</span> Arunshopping
-      </div>
+      
       {page === 'login' ? (
         
         <LoginForm onSubmit={handleLogin} onSwitch={() => setPage('signup')} />
