@@ -5,7 +5,7 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
-  // Add product to cart, or increase quantity if already in cart
+  
   function addToCart(product, quantity) {
     setCartItems((items) => {
       const existing = items.find((item) => item.id === product.id);
@@ -20,7 +20,7 @@ export function CartProvider({ children }) {
     });
   }
 
-  // Update quantity for a cart item
+  
   function updateQuantity(id, quantity) {
     if (quantity < 1) return;
     setCartItems((items) =>
@@ -35,15 +35,15 @@ export function CartProvider({ children }) {
     setCartItems((items) => items.filter((item) => item.id !== id));
   }
 
-  // Clear entire cart (after order)
+  
   function clearCart() {
     setCartItems([]);
   }
 
-  // Total items count
+  
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  // Total price
+  
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0

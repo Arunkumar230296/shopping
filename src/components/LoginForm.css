@@ -1,17 +1,17 @@
-/* Wrapper to isolate login layout */
+
 .login-page-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* vertically center */
-  align-items: center;      /* horizontally center */
-  min-height: 100vh;        /* full screen height */
+  justify-content: center;  
+  align-items: center;      
+  min-height: 100vh;        
   background-color: #f9f9f9;
   padding: 20px;
 }
 
 
 
-/* Stylish header */
+
 .login-header {
   display: flex;
   align-items: center;
@@ -23,7 +23,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Container for the form */
+
 .login-form {
   max-width: 300px;
   width: 100%;

@@ -10,7 +10,7 @@ export default function Checkout() {
   const navigate = useNavigate();
 
   const onFinish = (values) => {
-    console.log("Order placed with data:", values); // Optional: log form data
+    console.log("Order placed with data:", values);
     clearCart();
     navigate("/order-confirmation", { state: { orderId: Date.now() } });
   };
@@ -19,7 +19,7 @@ export default function Checkout() {
     <div style={{ maxWidth: 400, margin: "auto", padding: 20 }}>
       <Title level={2}>Checkout</Title>
       <Form layout="vertical" onFinish={onFinish}>
-        {/* Shipping Info */}
+        
         <Form.Item
           label="Name"
           name="name"
@@ -45,7 +45,7 @@ export default function Checkout() {
           <Input.TextArea rows={3} />
         </Form.Item>
 
-        {/* Payment Info - Mock Fields */}
+      
         <Title level={4}>Payment Details</Title>
         <Form.Item
           label="Cardholder Name"

@@ -17,12 +17,11 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 function AppContent({ session, setSession }) {
   const navigate = useNavigate();
 
-  // Keep track of previous session state to detect login transition
+  
   const [prevSession, setPrevSession] = useState(null);
 
   useEffect(() => {
     if (session && !prevSession) {
-      // User just logged in, redirect to home page
       navigate("/");
     }
     setPrevSession(session);
