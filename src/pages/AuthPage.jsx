@@ -29,9 +29,17 @@ export default function AuthPage({ onLogin }) {
     }
   }
 
-  return page === 'login' ? (
-    <LoginForm onSubmit={handleLogin} onSwitch={() => setPage('signup')} />
-  ) : (
-    <SignupForm onSubmit={handleSignup} onSwitch={() => setPage('login')} />
+  return (
+    <>
+      <div className="auth-header">
+        <span role="img" aria-label="shopping cart" className="cart-icon">🛒</span> Arunshopping
+      </div>
+      {page === 'login' ? (
+        
+        <LoginForm onSubmit={handleLogin} onSwitch={() => setPage('signup')} />
+      ) : (
+        <SignupForm onSubmit={handleSignup} onSwitch={() => setPage('login')} />
+      )}
+    </>
   );
 }
